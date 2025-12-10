@@ -1,53 +1,47 @@
-// 2:1 mux Implementation using verilog 
+// 2:1 mux implementation using verilog
 
-/************ DESIGN CODE ***********/
+/*********** DESIGN CODE *************/
 
-
-module mux41 (a,b,c,d,sel0,sel1,y);
-  input a,b,c,d,sel0,sel1;
+module mux21(a,b,sel,y);
+  input a,b,sel;
   output y;
   
-  assign y = sel1 ? (sel0 ? d : c) : (sel0 ? b : a);
-  
+  assign y=sel?b:a;
 endmodule
 
-
-/************* TESTBENCH CODE **********/
-
+/***************** TESTBENCH CODE ***************/
 
 
-module mux41_test;
-  reg a,b,c,d,sel0,sel1;
+module mux21_test;
+  reg a,b,sel;
   wire y;
   
-  mux41 uut (a,b,c,d,sel0,sel1,y);
+  mux21 uut(a,b,sel,y);
   
   initial 
     begin 
+      a=1; b=0; sel =0; //y=a---1
       
-      a=0; b=1; c=0; d=1;
+      #10 sel=1;  //y=b---0
       
-      #0 sel1=0; sel0=0;
+      #10 a=0; b=1; //y=b---1
       
-      #10  sel1=0; sel0=1;
+      #10 sel=0; //y=a---0
       
-      #10  sel1=1; sel0=0;
-      
-      #10  sel1=1; sel0=1;
-      
-      $finish;
+      #20 $finish;
     end
   
   initial 
     begin 
-      $monitor($time,"   a=%b b=%b c=%b d=%b sel1=%b sel0=%b y=%b",a,b,c,d,sel1,sel0,y);
-      
+      $monitor($time,"   sel=%b ---a=%b----b=%b----y=%b",sel,a,b,y);
     end
   
-  initial 
+  initial
     begin 
       $dumpfile("prg.vcd");
-      $dumpvars(0,mux41_test);
-    end 
+      $dumpvars(0,mux21_test);
+    end
   
 endmodule
+  
+      
