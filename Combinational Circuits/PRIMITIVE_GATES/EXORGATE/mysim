@@ -1,0 +1,65 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002542d559b20 .scope module, "exor_gate_test" "exor_gate_test" 2 1;
+ .timescale 0 0;
+v000002542d55be20_0 .var "a", 0 0;
+v000002542d55bec0_0 .var "b", 0 0;
+v000002542d5a5080_0 .net "y", 0 0, L_000002542d5568b0;  1 drivers
+S_000002542d5a4ef0 .scope module, "uut" "exor_gate" 2 5, 3 1 0, S_000002542d559b20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_000002542d5568b0 .functor XOR 1, v000002542d55be20_0, v000002542d55bec0_0, C4<0>, C4<0>;
+v000002542d556f20_0 .net "a", 0 0, v000002542d55be20_0;  1 drivers
+v000002542d556810_0 .net "b", 0 0, v000002542d55bec0_0;  1 drivers
+v000002542d55bd80_0 .net "y", 0 0, L_000002542d5568b0;  alias, 1 drivers
+    .scope S_000002542d559b20;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002542d55be20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002542d55bec0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002542d55be20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002542d55bec0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002542d55be20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002542d55bec0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002542d55be20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002542d55bec0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 14 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002542d559b20;
+T_1 ;
+    %vpi_call 2 19 "$monitor", $time, "  A=%b....B=%b....Y=%b", v000002542d55be20_0, v000002542d55bec0_0, v000002542d5a5080_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000002542d559b20;
+T_2 ;
+    %vpi_call 2 24 "$dumpfile", "exor_gate.vcd" {0 0 0};
+    %vpi_call 2 25 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002542d559b20 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "exor_test.v";
+    "exor.v";
