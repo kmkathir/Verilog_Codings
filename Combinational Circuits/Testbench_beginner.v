@@ -26,3 +26,36 @@ module test;
       
     end
 endmodule
+
+/*********** Tesbench ***********/
+
+
+module logic_gates_test;
+
+  reg a, b;
+  wire yo, y1, y2, y3, y4, y5, y6;
+
+  // Instantiate DUT (Device Under Test)
+  logic_gates dut (a,b,yo,y1,y2,y3,y4,y5,y6);
+    
+
+  initial
+   begin
+    
+    // Apply test cases
+    a = 0; b = 0; #10;
+    a = 0; b = 1; #10;
+    a = 1; b = 0; #10;
+    a = 1; b = 1; #10;
+
+    #10 $finish;
+    
+  end
+
+initial 
+begin 
+  $dumpfile("logic_gates.vcd");
+    $dumpvars(0,logic_gates_test);
+end
+
+endmodule
