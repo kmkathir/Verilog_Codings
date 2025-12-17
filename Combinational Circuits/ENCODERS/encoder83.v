@@ -46,7 +46,7 @@ module encoder83_test;
     end
   initial
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,encoder83_test);
       end
       

@@ -37,7 +37,7 @@ module encoder42_test;
   
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
     $dumpvars(0,encoder42_test);
     end
   
