@@ -46,7 +46,7 @@ module arithmetic_operator_test;
   
   initial //for waveform output
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,arithmetic_operator_test);
     end
   
