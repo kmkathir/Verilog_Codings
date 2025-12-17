@@ -52,7 +52,7 @@ module mux81_test;
   
   initial 
     begin 
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,mux81_test);
     end 
   

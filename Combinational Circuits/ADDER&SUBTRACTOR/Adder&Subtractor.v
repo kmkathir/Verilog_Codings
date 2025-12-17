@@ -56,7 +56,7 @@ module  adder_subtractor_4bit_test;
   
   initial
   begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
     $dumpvars(0, adder_subtractor_4bit_test);
   end
   

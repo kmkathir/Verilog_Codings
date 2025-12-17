@@ -1,6 +1,6 @@
 // Full Adder design using Verilog 
 // EDA PLAYGROUND LINK : https://www.edaplayground.com/x/HXkq ( Gate level Description )
-                         https://www.edaplayground.com/x/deaF
+//                       https://www.edaplayground.com/x/deaF
 
 
 /****************** Design Code **********************/
@@ -44,7 +44,7 @@ module full_adder_test;
   
   initial 
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,full_adder_test);
     end 
   

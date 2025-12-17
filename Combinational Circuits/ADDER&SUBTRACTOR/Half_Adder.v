@@ -42,7 +42,7 @@ module half_adder_test;
       initial
         begin
           
-          $dumpfile("prg.vcd");
+          $dumpfile("kathir.vcd");
           $dumpvars(0,half_adder_test);
           
         end

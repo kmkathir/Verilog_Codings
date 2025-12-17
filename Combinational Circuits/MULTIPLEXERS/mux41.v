@@ -43,7 +43,7 @@ module mux41_test;
   
   initial 
     begin 
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,mux41_test);
     end 
   
