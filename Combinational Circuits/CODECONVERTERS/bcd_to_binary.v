@@ -29,3 +29,27 @@ module bcd_to_binary (input  [3:0] tens, input  [3:0] ones, output reg [3:0] bin
     end
 endmodule
             
+/************ TESTBENCH CODE ************/
+
+module tb_bcd_to_binary;
+    reg  [3:0] tens, ones;
+    wire [3:0] binary;
+    bcd_to_binary uut (.tens(tens), .ones(ones), .binary(binary) );
+    initial begin
+        $display("Tens | Ones | Binary");
+        $display("--------------------");
+
+        for (tens = 0; tens < 2; tens = tens + 1) begin
+            for (ones = 0; ones < 10; ones = ones + 1) begin
+                #5;
+                if (binary <= 15)  // Only display valid 4-bit binary results
+                    $display("  %d  |  %d  |  %2d", tens, ones, binary);
+            end
+        end
+        $finish;
+    end
+
+endmodule
+
+
+
