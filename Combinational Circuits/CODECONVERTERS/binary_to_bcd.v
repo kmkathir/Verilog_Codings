@@ -26,3 +26,28 @@ module binary_to_bcd ( input  [3:0] binary,  output reg [3:0] tens,  output reg 
         endcase
     end
 endmodule
+
+/************ TESTBENCH CODE ************/
+
+module tb_binary_to_bcd;
+    reg  [3:0] binary;
+    wire [3:0] tens, ones;
+  integer i;
+
+    // Instantiate the module under test
+    binary_to_bcd uut (.binary(binary), .tens(tens), .ones(ones) );
+
+    initial begin
+        $display("Binary | Tens | Ones");
+        $display("---------------------");
+
+      for (i = 0; i < 16; i = i + 1) begin
+            binary = i;
+            #5; // wait a little for output to settle
+            $display("  %2d   |  %1d   |  %1d", binary, tens, ones);
+        end
+
+        $finish;
+    end
+
+endmodule
