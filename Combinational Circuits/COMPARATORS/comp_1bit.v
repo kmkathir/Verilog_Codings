@@ -20,3 +20,37 @@ module bit1_comp (a,b,yg,yl,ye);
   end
   
 endmodule
+
+/******************** TestBench **********************/
+
+module bit1_comp_test;
+  reg a,b;
+  wire yg,yl,ye;
+  
+  bit1_comp uut (a,b,yg,yl,ye);
+  
+  initial 
+   begin 
+    
+    a=0; b=0;
+    
+    #10 a=0; b=1;
+    
+    #10 a=1; b=0;
+    
+    #10 a=1; b=1;
+    
+    #20 $finish;
+    
+  end 
+  
+  initial 
+    $monitor($time,"  A=%b----- B=%b----- Greater=%b-----Lesser=%b------Equal=%b",a,b,yg,yl,ye);
+  
+  initial
+    begin
+      $dumpfile("prg.vcd");
+      $dumpvars(0,bit1_comp_test);
+    end
+  
+endmodule
