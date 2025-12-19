@@ -13,7 +13,10 @@ module bit1_comp (a,b,yg,yl,ye);
         begin yg=1; yl=0; ye=0; end
       else if(a<b)
         begin yg=0; yl=1; ye=0; end
-     
+      else if(a==b)
+        begin yg=0; yl=0; ye=1; end
+      else
+       begin yg=1'bx; yl=1'bx; ye=1'bx; end
   end
   
 endmodule
