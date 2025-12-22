@@ -1,3 +1,8 @@
+//Design of a SR Flip-Flop using Verilog HDL
+// EDA PLAYGROUND LINK : https://edaplayground.com/x/XBGN
+
+//************ Design Code *********************/
+
 module srff(s,r,rst,clk,q,qb);
   input s,r,rst, clk;
   output reg q;
