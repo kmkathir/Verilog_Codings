@@ -24,3 +24,26 @@ module srff(s,r,rst,clk,q,qb);
     end
     assign qb=~q;
 endmodule
+
+//************ Test Bench Code *********************/
+
+module srff_test;
+   reg s,r,rst, clk;
+   wire q,qb;
+  
+  srff s1 (s,r,rst,clk,q,qb);
+  
+  always #10 clk=~clk;
+  
+  initial
+    begin
+     clk=0;  rst=1;
+      #10 rst=0;  
+     
+    #10 s=0; r=0;
+    #10 s=0; r=1;
+    #10 s=1; r=0;
+    #10 s=1; r=0;
+      
+    #70 $finish;
+    end
