@@ -26,3 +26,36 @@ module jkff(j,k,rst,clk,q,qb);
 endmodule
   
         
+//************ Test Bench Code *********************/
+
+module jkff_test;
+   reg j,k,rst, clk;
+   wire q,qb;
+  
+  jkff s1 (j,k,rst,clk,q,qb);
+  
+  always #5 clk=~clk;
+  
+  initial
+    begin
+     clk=0;  rst=1;
+      #10 rst=0;
+    #10 j=1; k=0;
+    #10 j=0; k=0;
+    #10 j=0; k=1;
+    #10 j=1; k=1;
+    #10 j=1; k=0;
+      
+    #20 $finish;
+    end
+  initial
+    $monitor($time, "  rst=%b....Clk=%b....J=%b...K=%b....q=%b....qb=%b",rst,clk,j,k,q,qb);
+  
+  initial
+    begin
+    $dumpfile("prg.vcd");
+      $dumpvars(0,jkff_test);
+    end
+endmodule
+  
+      
