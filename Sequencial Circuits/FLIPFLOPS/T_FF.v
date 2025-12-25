@@ -25,3 +25,7 @@ module Tff (T,clk,rst,q,qb);
   assign qb=~q; 
 endmodule
   
+  //******************** TestBench **********************/
+
+module Tff_test;
+  reg T,clk,rst;
