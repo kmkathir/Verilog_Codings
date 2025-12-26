@@ -85,7 +85,7 @@ module decoder24_test;
   
   initial 
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,decoder24_test);
       
     end 

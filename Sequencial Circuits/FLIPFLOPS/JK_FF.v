@@ -53,7 +53,7 @@ module jkff_test;
   
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
       $dumpvars(0,jkff_test);
     end
 endmodule

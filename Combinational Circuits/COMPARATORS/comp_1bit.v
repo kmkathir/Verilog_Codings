@@ -49,7 +49,7 @@ module bit1_comp_test;
   
   initial
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,bit1_comp_test);
     end
   

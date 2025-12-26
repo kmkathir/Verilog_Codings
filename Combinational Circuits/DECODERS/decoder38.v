@@ -70,7 +70,7 @@ endmodule
     end
   initial
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("kathir.vcd");
       $dumpvars(0,decoder38_test);
     end
 endmodule  
