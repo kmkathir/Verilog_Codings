@@ -47,3 +47,14 @@ module srff_test;
       
     #70 $finish;
     end
+     initial
+    $monitor($time, "  rst=%b....Clk=%b....S=%b...R=%b....q=%b....qb=%b",rst,clk,s,r,q,qb);
+  
+  initial
+    begin
+    $dumpfile("kathir.vcd");
+      $dumpvars(0,srff_test);
+    end
+endmodule
+  
+      
