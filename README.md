@@ -8,7 +8,7 @@ Digital Electronics and VLSI fundamentals.
 - Half Adder & Full Adder
 - Multiplexers (2:1, 4:1, 8:1)
 - Adder & Subtractor
-- Testbenches
+- Flipflops
 
 ## Tools Used
 - Icarus Verilog
@@ -18,4 +18,4 @@ Digital Electronics and VLSI fundamentals.
 
 ## Author
 Kathiresan M
-ECE Undergraduate
+3rd Year - B.E-ECE
