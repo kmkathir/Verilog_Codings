@@ -34,3 +34,7 @@ module jkff(j,k,rst,clk,q,qb);
     assign qb=~q;
 endmodule
   
+ //************ TestBench *********************/
+
+ module dff_test;
+  reg d,clk,rst; 
