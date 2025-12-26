@@ -58,7 +58,7 @@ endmodule
     $monitor($time, "  rst=%b...Clk=%b....d=%b....q=%b....qb=%b", rst, clk, d, q, qb);
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
       $dumpvars(0,dff_test);
     end
 endmodule 
