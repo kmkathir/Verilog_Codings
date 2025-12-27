@@ -20,3 +20,9 @@ module dff_pr (d,clk,rst,pr,q,qb);
   assign qb=~q;
 endmodule
   
+//******************** TestBench **********************/
+
+module dff_pr_test;
+  reg d,clk,rst,pr;
+  wire q;
+  wire qb;
