@@ -1,5 +1,5 @@
 //Design a 4-bit up-down BCD counter using behavioral modeling
-// EDA PLAYGROUND LINK : 
+// EDA PLAYGROUND LINK : https://edaplayground.com/x/QTQZ
 
 /************ Design Code *********************/
 
