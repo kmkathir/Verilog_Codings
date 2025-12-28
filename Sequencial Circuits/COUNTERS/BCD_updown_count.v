@@ -28,3 +28,11 @@ module cntr_4bit(clk,rst,q,qb);
     end
   assign qb=~q;
 endmodule
+
+
+//******************** TestBench **********************/
+
+module cntr_4bit_test;
+  reg clk,rst;
+  wire [3:0]q;
+  wire [3:0] qb;
