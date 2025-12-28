@@ -20,3 +20,35 @@ module upcounter_4bit(clk,rst,q,qb);
     end
   assign qb=~q;
 endmodule
+
+//******************** TestBench **********************/
+
+module upcounter_4bit_test;
+  reg clk,rst;
+  wire [3:0]q;
+  wire [3:0] qb;
+  
+  upcounter_4bit uut (clk,rst,q,qb);
+  
+  always #5 clk=~clk;
+  initial 
+    begin 
+      clk =0; rst=1;
+      
+      #10 rst=0;
+      
+      #200 $finish;
+      
+    end 
+  
+  initial 
+    $monitor($time,"       rst=%b...Clk=%b....q=%b....qb=%b", rst, clk, q, qb);
+  
+  initial
+    begin
+    $dumpfile("prg.vcd");
+      $dumpvars(0,upcounter_4bit_test);
+    end
+
+endmodule 
+      
