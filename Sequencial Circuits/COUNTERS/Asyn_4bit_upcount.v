@@ -28,3 +28,15 @@ module jkff(j,k,rst,clk,q,qb);
     assign qb=~q;
 endmodule
 
+////// CODE FOR T FLIP FLOP USING JK FLIP FLOP ///////////
+
+`include "jkff.sv"
+module Tff (T,clk,rst,q,qb);
+  input T,clk,rst;
+  output reg q;
+  output qb;
+  
+  jkff j1 (.j(T), .k(T), .rst(rst), .clk(clk), .q(q), .qb(qb));
+  
+endmodule
+  
