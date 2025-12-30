@@ -57,4 +57,10 @@ module cntr_4bit(clk,rst,q,qb);
 endmodule
 
 
-  
+  ////// Testbench Code ///////////
+
+  module cntr_4bit_test;
+  reg clk,rst;
+  wire [3:0]q;
+  wire [3:0] qb;
+  cntr_4bit uut (clk,rst,q,qb);
