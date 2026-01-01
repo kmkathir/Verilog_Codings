@@ -43,7 +43,7 @@ always #5 clk=~clk;
     end
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
      $dumpvars(0,cntr_4bit_test);
     end
 endmodule
