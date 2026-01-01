@@ -21,3 +21,11 @@ module cntr_4bit(clk,reset,q,qb);
   
 endmodule
 
+//************ Testbench Code *********************/
+
+module cntr_4bit_test;
+  reg clk,reset;
+  wire [3:0]q;
+  wire [3:0] qb;
+  cntr_4bit uut (clk,reset,q,qb);
+  
