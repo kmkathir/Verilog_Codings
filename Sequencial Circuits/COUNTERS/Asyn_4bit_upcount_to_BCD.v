@@ -27,5 +27,27 @@ module cntr_4bit_test;
   reg clk,reset;
   wire [3:0]q;
   wire [3:0] qb;
+  
   cntr_4bit uut (clk,reset,q,qb);
+
+always #5 clk=~clk;
+  initial
+    begin
+      clk = 0; reset =1;
+      #10 reset = 0;
+      
+      #600 $finish;
+    end
+  initial
+    begin
+      $monitor($time, "  rst=%b...Clk=%b....q=%b....qb=%b", reset, clk, q, qb);
+    end
+  initial
+    begin
+    $dumpfile("prg.vcd");
+     $dumpvars(0,cntr_4bit_test);
+    end
+endmodule
+  
+  
   
