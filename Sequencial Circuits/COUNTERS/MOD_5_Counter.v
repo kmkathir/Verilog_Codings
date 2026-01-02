@@ -36,5 +36,14 @@ module mod5_cntr_test;
   reg clk,rst;
   wire [3:0]q;
   wire [3:0] qb;
+  
   mod5_cntr uut (clk,rst,q,qb);
   
+   always #5 clk=~clk;
+  initial
+    begin
+      clk = 0; rst =1;
+      #10 rst = 0;
+      
+      #100 $finish;
+    end
