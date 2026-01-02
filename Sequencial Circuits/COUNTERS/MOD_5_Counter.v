@@ -2,3 +2,30 @@
 // EDA PLAYGROUND LINK : https://edaplayground.com/x/Ntt4 
 
 //************ Design Code *********************/
+
+module mod5_cntr(clk,rst,q,qb);
+  input clk,rst;
+  output reg [3:0]q;
+  output [3:0] qb;
+  
+  always@(posedge clk or posedge rst)
+    begin
+      if(rst)
+       // q<=4'b0000; //up count 
+      q<=4'b0000; //down count
+      
+      else
+        begin
+         q<=q+1; //up count
+          if(q==4'b0101)
+         q<=4'b0000;
+                   /*  q<=q-1;
+         			 if (q==4'b0000)
+                     q<=4'b1001; 
+                               */
+                               
+        end
+    
+    end
+  assign qb=~q;
+endmodule
