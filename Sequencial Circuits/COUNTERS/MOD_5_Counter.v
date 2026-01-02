@@ -53,7 +53,7 @@ module mod5_cntr_test;
     end
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
       $dumpvars(0,mod5_cntr_test);
     end
 endmodule
