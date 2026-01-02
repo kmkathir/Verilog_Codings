@@ -29,3 +29,12 @@ module mod5_cntr(clk,rst,q,qb);
     end
   assign qb=~q;
 endmodule
+
+//************ Testbench Code *********************/
+
+module mod5_cntr_test;
+  reg clk,rst;
+  wire [3:0]q;
+  wire [3:0] qb;
+  mod5_cntr uut (clk,rst,q,qb);
+  
