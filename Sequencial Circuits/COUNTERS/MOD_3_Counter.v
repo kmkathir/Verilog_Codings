@@ -1,1 +1,1 @@
-next to come
+//Design of MOD 3 Counter using Behavioral Modeling in Verilog
