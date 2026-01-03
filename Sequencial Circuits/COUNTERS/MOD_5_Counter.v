@@ -56,6 +56,7 @@ module mod5_cntr_test;
     $dumpfile("kathir.vcd");
       $dumpvars(0,mod5_cntr_test);
     end
+    end
 endmodule
   
   
