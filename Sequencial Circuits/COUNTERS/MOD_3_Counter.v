@@ -1,6 +1,8 @@
 //Design of MOD 3 Counter using Behavioral Modeling in Verilog
 // EDA PLAYGROUND LINK : https://edaplayground.com/x/Y57c
 
+//***********DESIGN CODE **************//
+
 module mod3_cntr(clk,rst,q,qb);
   input clk,rst;
   output reg [3:0]q;
@@ -28,6 +30,7 @@ always@(posedge clk or posedge rst)
   assign qb=~q;
 endmodule
 
+//***********TESTBENCH CODE **************//
 
 module mod3_cntr_test;
   reg clk,rst;
@@ -49,7 +52,7 @@ module mod3_cntr_test;
     end
   initial
     begin
-    $dumpfile("prg.vcd");
+    $dumpfile("kathir.vcd");
       $dumpvars(0,mod3_cntr_test);
     end
 endmodule
