@@ -34,3 +34,25 @@ module mod3_cntr_test;
   wire [3:0]q;
   wire [3:0] qb;
   mod3_cntr uut (clk,rst,q,qb);
+
+   always #5 clk=~clk;
+  initial
+    begin
+      clk = 0; rst =1;
+      #10 rst = 0;
+      
+      #100 $finish;
+    end
+  initial
+    begin
+      $monitor($time, "  rst=%b...Clk=%b....q=%b....qb=%b", rst, clk, q, qb);
+    end
+  initial
+    begin
+    $dumpfile("prg.vcd");
+      $dumpvars(0,mod3_cntr_test);
+    end
+endmodule
+  
+  
+  
