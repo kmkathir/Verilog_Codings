@@ -27,3 +27,10 @@ always@(posedge clk or posedge rst)
     end
   assign qb=~q;
 endmodule
+
+
+module mod3_cntr_test;
+  reg clk,rst;
+  wire [3:0]q;
+  wire [3:0] qb;
+  mod3_cntr uut (clk,rst,q,qb);
