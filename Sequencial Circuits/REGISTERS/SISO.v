@@ -39,3 +39,25 @@ module siso(sin,sout,clk,rst);
   
   assign sout=q[3];
 endmodule
+
+//************ Testbench Code *********************/
+
+module siso_test;
+   reg sin,clk,rst;
+   wire sout;
+  
+  siso uut(sin,sout,clk,rst);
+  
+  always #5 clk= ~clk;
+  
+  initial
+    begin
+      rst=1; clk = 0;
+      #10 rst=0;
+      #20 sin=1;
+      #20 sin=0;
+      #20 sin=1;
+      
+      #50 $finish;
+      
+    end
