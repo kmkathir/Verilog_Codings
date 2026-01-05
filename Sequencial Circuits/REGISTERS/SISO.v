@@ -61,3 +61,15 @@ module siso_test;
       #50 $finish;
       
     end
+
+initial
+    begin
+      $monitor($time,  "rst=%b---clk=%b---sin=%b---sout=%b",rst,clk,sin,sout);
+    end
+initial
+    begin
+      $dumpfile("prg.vcd");
+      $dumpvars(0,siso_test);
+    end
+endmodule
+  
