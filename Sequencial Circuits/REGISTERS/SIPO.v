@@ -39,3 +39,12 @@ module sipo(sin,sout,clk,rst);
   
   assign sout=q;
 endmodule
+
+//************ Testbench Code *********************/
+
+module sipo_test;
+   reg sin,clk,rst;
+  wire [3:0] sout;
+  
+  sipo uut(sin,sout,clk,rst);
+  
