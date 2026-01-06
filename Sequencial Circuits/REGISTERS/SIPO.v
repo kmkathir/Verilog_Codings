@@ -19,3 +19,14 @@ module dff (d,clk,rst,q,qb);
     end
   assign qb=~q;
 endmodule
+
+//Design code for SIPO Shift Register using D Flip-Flops
+
+`include "dff.sv"
+module sipo(sin,sout,clk,rst);
+  input sin,clk,rst;
+  
+  output  [3:0] sout;
+  wire[3:0]q;
+  
+ 
