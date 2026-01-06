@@ -29,4 +29,13 @@ module sipo(sin,sout,clk,rst);
   output  [3:0] sout;
   wire[3:0]q;
   
- 
+  dff d0 (.d(sin), .clk(clk), .rst(rst), .q(q[0]));
+  dff d1 (.d(q[0]), .clk(clk), .rst(rst), .q(q[1]));
+  dff d2 (.d(q[1]), .clk(clk), .rst(rst), .q(q[2]));
+  dff d3 (.d(q[2]), .clk(clk), .rst(rst), .q(q[3]));
+  
+  
+  
+  
+  assign sout=q;
+endmodule
