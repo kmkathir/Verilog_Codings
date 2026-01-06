@@ -47,4 +47,28 @@ module sipo_test;
   wire [3:0] sout;
   
   sipo uut(sin,sout,clk,rst);
+   always #5 clk= ~clk;
+  
+  initial
+    begin
+      rst=1; clk = 0;
+      #10 rst=0;
+      #20 sin=1;
+      #20 sin=0;
+      #20 sin=1;
+      
+      #50 $finish;
+      
+    end
+  
+  initial
+    begin
+      $monitor($time,  "   rst=%b---clk=%b---sin=%b---sout=%b",rst,clk,sin,sout);
+    end
+  initial
+    begin
+      $dumpfile("kathir.vcd");
+      $dumpvars(0,sipo_test);
+    end
+endmodule
   
