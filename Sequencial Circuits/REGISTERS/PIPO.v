@@ -62,3 +62,31 @@ reg [3:0] pin;
   pipo uut(pin,pout,clk,rst,S_L);
   
   always #5 clk= ~clk;
+
+   initial
+    begin
+      rst=1; clk = 0;
+      #10 rst=0;
+      
+      #20 pin=4'b1011; S_L=1; 
+      #10 S_L=0;
+      
+      #40 pin=4'b0100; S_L=1; 
+      #10 S_L=0;
+      
+            
+      #50 $finish;
+      
+    end
+  
+  initial
+    begin
+      $monitor($time,  "rst=%b---clk=%b---S/L=%b---pin=%b---sout=%b",rst, clk, S_L, pin, pout);
+    end
+  initial
+    begin
+      $dumpfile("Kathir.vcd");
+      $dumpvars(0,pipo_test);
+    end
+endmodule
+  
