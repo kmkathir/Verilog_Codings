@@ -51,3 +51,14 @@ module pipo(pin,pout,clk,rst,S_L);
     
   assign pout=q;
 endmodule
+
+//Testbench Code for 4-bit PIPO Register
+
+module pipo_test;
+reg clk,rst,S_L;
+reg [3:0] pin;
+  wire [3:0] pout;
+  
+  pipo uut(pin,pout,clk,rst,S_L);
+  
+  always #5 clk= ~clk;
