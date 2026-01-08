@@ -40,6 +40,25 @@ module siso(sin,sout,clk,rst);
   assign sout=q[3];
 endmodule
 
+//Design code for SISO Shift Register using Behavioral Modeling
+
+module siso(sin,sout,clk,rst);
+  input sin,clk,rst;
+  
+  output  sout;
+  reg [3:0]q;
+  
+  always@(posedge clk or posedge rst)
+    begin
+      if(rst)
+        q<=4'b0000;
+      else
+        q<={q[2],q[1],q[0],sin};
+    end
+  
+  assign sout=q[3];
+endmodule
+
 //************ Testbench Code *********************/
 
 module siso_test;
