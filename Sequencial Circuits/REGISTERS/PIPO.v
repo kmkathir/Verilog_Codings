@@ -34,4 +34,20 @@ module pipo(pin,pout,clk,rst,S_L);
   dff d2 (.d(w6),     .clk(clk), .rst(rst), .q(q[2]));
   dff d3 (.d(w9),     .clk(clk), .rst(rst), .q(q[3]));
   
+  assign w0 = ~S_L;
   
+  assign w1 = w0 & q[0];
+  assign w2 = S_L & pin[2];
+  assign w3 = w1 | w2;
+  
+  assign w4 = w0 & q[1];
+  assign w5 = S_L & pin[1];
+  assign w6 = w4 | w5;
+
+  assign w7 = w0 & q[2];
+  assign w8 = S_L & pin[3];
+  assign w9 = w7 | w8;
+  
+    
+  assign pout=q;
+endmodule
