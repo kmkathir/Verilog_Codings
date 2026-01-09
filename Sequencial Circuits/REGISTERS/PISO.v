@@ -78,7 +78,7 @@ wire  sout;
     end
   initial
     begin
-      $dumpfile("prg.vcd");
+      $dumpfile("Kathir.vcd");
       $dumpvars(0,piso_test);
     end
 endmodule
