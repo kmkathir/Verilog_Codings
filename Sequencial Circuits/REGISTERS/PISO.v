@@ -19,3 +19,28 @@ module dff (d,clk,rst,q,qb);
     end
   assign qb=~q;
 endmodule
+
+//Design code for 4-bit Parallel In Serial Out (PISO) Register
+
+`include "dff.sv"
+module piso(pin,sout,clk,rst,S_L);
+  input clk,rst,S_L;
+  input [3:0] pin;
+  output  sout;
+  reg [3:0] q;
+ 
+  always@(posedge clk or posedge rst)
+    begin
+      if(rst)
+		q<=4'b0000;
+      else if(S_L==1)
+        q<=pin;
+      else if (S_L==0)
+          q <= q>>1;
+      else
+         q<=4'bxxxx;
+    end
+      
+  assign sout=q[0];
+
+endmodule
