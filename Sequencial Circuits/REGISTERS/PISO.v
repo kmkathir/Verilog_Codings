@@ -44,3 +44,16 @@ module piso(pin,sout,clk,rst,S_L);
   assign sout=q[0];
 
 endmodule
+
+//Testbench Code for 4-bit PISO Register
+
+module piso_test;
+reg clk,rst,S_L;
+reg [3:0] pin;
+wire  sout;
+  
+  piso uut(pin,sout,clk,rst,S_L);
+  
+  always #5 clk= ~clk;
+  
+  
