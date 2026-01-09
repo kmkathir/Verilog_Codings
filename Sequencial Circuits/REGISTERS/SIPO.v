@@ -34,11 +34,28 @@ module sipo(sin,sout,clk,rst);
   dff d2 (.d(q[1]), .clk(clk), .rst(rst), .q(q[2]));
   dff d3 (.d(q[2]), .clk(clk), .rst(rst), .q(q[3]));
   
-  
-  
-  
   assign sout=q;
 endmodule
+
+//Design code for SIPO Shift Register using Behavioral Modeling
+
+module sipo(sin,pout,clk,rst);
+  input sin,clk,rst;
+  
+  output [3:0]pout;
+  reg [3:0]q;
+  
+  always@(posedge clk or posedge rst)
+    begin
+      if(rst)
+        q<=4'b0000;
+      else
+        q<={q[2],q[1],q[0],sin};
+    end
+  
+  assign sout=q[3];
+endmodule
+
 
 //************ Testbench Code *********************/
 
