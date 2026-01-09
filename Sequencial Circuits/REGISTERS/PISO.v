@@ -56,4 +56,30 @@ wire  sout;
   
   always #5 clk= ~clk;
   
+  initial
+    begin
+      rst=1; clk = 0;
+      #10 rst=0;
+      
+      #20 pin=4'b1011; S_L=1; 
+      #10 S_L=0;
+      
+      #40 pin=4'b0011; S_L=1; 
+      #10 S_L=0;
+      
+            
+      #50 $finish;
+      
+    end
+  
+  initial
+    begin
+      $monitor($time,  "    rst=%b---clk=%b---S/L=%b---pin=%b---sout=%b",rst, clk, S_L, pin, sout);
+    end
+  initial
+    begin
+      $dumpfile("prg.vcd");
+      $dumpvars(0,piso_test);
+    end
+endmodule
   
