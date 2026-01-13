@@ -52,6 +52,32 @@ module pipo(pin,pout,clk,rst,S_L);
   assign pout=q;
 endmodule
 
+//Design of 4-bit PIPO Register using behavioral Modeling
+
+module pipo(pin,pout,clk,rst,S_L);
+  input clk,rst,S_L;
+  input [3:0] pin;
+  output [3:0] pout;
+  reg [3:0] q;
+  
+   always@(posedge clk or posedge rst)
+    begin
+      if(rst)
+		q<=4'b0000;
+      else 
+        begin
+          if(S_L==1)
+            q<=pin;
+          else if (S_L==0)
+            q <= pin;
+         else
+         q<=4'bxxxx;
+    end
+    end  
+    
+  assign pout=q;
+endmodule
+
 //Testbench Code for 4-bit PIPO Register
 
 module pipo_test;
